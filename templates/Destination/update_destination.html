@@ -1,0 +1,36 @@
+{% extends 'admin_index.html' %}
+{% block content %}
+
+<div class="wrapper row3">
+    <main class="hoc container clear"> 
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="content"> 
+        <!-- ################################################################################################ -->
+        
+        <div class="scrollable">
+          <table>
+            <thead>
+              <tr>
+                <th>Destination Name</th>
+                <th>Destination State</th>
+                <th>Destination Discription</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for Destination_List_item in Destination_List_items %}
+              <tr>
+                <td><a href="#">{{Destination_List_item.Destination_Name}}</a></td>
+                <td>{{Destination_List_item.Destination_state}}</td>
+                <td>{{Destination_List_item.Destination_discription}}</td>
+                <td><button name="submit" value = "{{Destination_List_item.Destination_id}}" class="btn btn-info">Update</button></td>
+              </tr>
+              {% endfor %}
+              
+            </tbody>
+          </table>
+        </div>
+    </main>
+</div>
+{% endblock content %}

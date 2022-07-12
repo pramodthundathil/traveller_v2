@@ -1,0 +1,41 @@
+{% extends 'admin_index.html' %}
+{% block content %}
+
+<div class="wrapper row3">
+    <main class="hoc container clear">
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="content">
+        <!-- ################################################################################################ -->
+  
+        <div id="comments">
+  
+         
+  
+          <h2>ADD Destination</h2>
+          {% for message in messages %}
+          <h3 style="color: Green;"> {{message}} </h3>
+          {% endfor %}
+          {{form.errors}}
+          <form method="post" enctype="multipart/form-data">
+            <div class="one_third first">
+  
+              {%csrf_token%}
+              {{Destination_add_form.as_p}}
+              
+            </div>
+              <div class="one_third first">
+                <input type="submit" name="submit" value="ADD Destination">
+                &nbsp;
+                <input type="reset" name="reset" value="Reset">
+              </div>
+          </form>
+        </div>
+      </div>
+      <!-- ################################################################################################ -->
+      <!-- / main body -->
+      <div class="clear"></div>
+    </main>
+  </div>
+<br><br>
+{% endblock content %}

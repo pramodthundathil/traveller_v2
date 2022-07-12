@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="wrapper row2">
+  <nav id="mainav" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <ul class="clear">
+      <li class="active"><a href="{%url 'home'%}">Home</a></li>
+      <li><a class="drop" href="#">Destinations</a>
+        <ul>
+          <li><a href="pages/gallery.html">Gallery</a></li>
+          <li><a href="pages/full-width.html">Full Width</a></li>
+          <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
+          <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
+          <li><a href="pages/basic-grid.html">Basic Grid</a></li>
+          <li><a href="pages/font-icons.html">Font Icons</a></li>
+        </ul>
+      </li>
+      <li><a href="{%url 'package_customer_view' %}">Packages</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Offers</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">News</a></li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </nav>
+</div>
+
+<div class="wrapper row3">
+  <section class="hoc container clear">
+    <!-- ################################################################################################ -->
+      <figure class="hoc container clear clients"> 
+    <div class="sectiontitle">
+      <h6 class="heading">Packages</h6>
+      <p>“You don’t have to be rich to travel well.”</p>
+    </div>
+  </figure>
+
+
+    <ul class="nospace group overview">
+
+      {% for pack in package %}
+
+      <li class="one_third" style="padding-bottom:20px">
+        <article>
+          <h6 class="heading">{{pack.Package_destination}}</h6>
+          <time datetime="2045-04-05T08:14+00:00">{{pack.Package_duration}} - <sup>Package Price
+            </sup>₹{{pack.Package_price}}</time>
+          <div class="excerpt">
+
+            <p>{{pack.Package_discription}}[<a href="#">&hellip;</a>]<br> Food Status: {{pack.Package_foodstatus}} </p>
+            <p>Start Point: KOCHI - Destination : {{pack.Package_destination}}
+              <footer>
+                <form action ="{%url 'booking_form' %}" method="post">
+                  {% csrf_token %}
+                  <button value="{{pack.Package_id}}" class="btn btn-bt-primery" name="submit">Booknow</button>
+              </form>
+            </footer>
+          </div>
+        </article>
+      </li>
+      {% endfor %}
+
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+{% endblock content %}

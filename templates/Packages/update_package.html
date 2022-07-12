@@ -1,0 +1,66 @@
+{% extends 'admin_index.html' %}
+{% block content %}
+
+<div class="wrapper row3">
+    <main class="hoc container clear">
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="content">
+        <!-- ################################################################################################ -->
+  
+        <div id="comments">
+  
+         
+  
+          <h2>Update Package</h2>
+          {% for message in messages %}
+          <h3 style="color: Green;"> {{message}} </h3>
+          {% endfor %}
+          
+          <form method="post" enctype="multipart/form-data" action="{%url 'update_package'%}">
+            {% csrf_token %}
+            {%for pack in package %}
+            <div class="one_third first">
+                <label for="package_des">Destination: <span>*</span></label>
+                <select name='destination' style='padding:10px; width:350px; border: 0.5px solid #E6E4E3'>
+                    <option selected disabled value="{{pack.Package_destination}}">{{pack.Package_destination}}</option> 
+                </select>
+              </div>
+              <div class="one_third">
+                <label for="duration">Duration: <span>*</span></label>
+                <input type="text" name="duration" id="email" value="{{pack.Package_duration}}" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="price">Price <span>*</span></label>
+                <input type="number" name="price" id="email" value="{{pack.Package_price}}" size="22" required>
+              </div>
+              <div class="one_third first">
+                <label for="f_status">Food Status: <span>*</span></label>
+                <input type="text" name="f_status" id="name" value="{{pack.Package_foodstatus}}" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="trans">Transortation: <span>*</span></label>
+                <input type="text" name="trans" id="email" value="{{pack.Package_Transpotation_status}}" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="dis">Discription:<span>*</span></label>
+                <input type="text" name="dis" id="email" value="{{pack.Package_discription}}" size="22" required>
+              </div>
+              <div class="one_third first">
+                <label for="pack_id">Package ID:<span>*</span></label>
+                <input type="text" name="pack_id" id="email" value="{{pack.Package_id}}" size="22" hidden readonly><br>
+                <input type="submit" name="submit" value="Update Package">
+                &nbsp;
+                
+              </div>
+          </form>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- ################################################################################################ -->
+      <!-- / main body -->
+      <div class="clear"></div>
+    </main>
+  </div>
+<br><br>
+{% endblock content %}

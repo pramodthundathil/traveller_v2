@@ -1,0 +1,426 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <title>Traveller</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="{% static 'styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body id="top">
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row0">
+        <div id="topbar" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <div class="fl_left">
+                <ul class="nospace">
+                    <li><a href="{%url 'admin_page'%}"><i class="fas fa-home fa-lg"></i></a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{%url 'signout' %}">{{request.user}} Logout</a></li>
+                    {% else %}
+                    <li><a href="{%url 'signup' %}">Login</a></li>
+                    <li><a href="{%url 'registration'%}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="fl_right">
+                <ul class="nospace">
+                    <li><i class="fas fa-phone rgtspace-5"></i> +91 (91) 41109785 </li>
+                    <li><i class="fas fa-envelope rgtspace-5"></i> info@domain.com</li>
+                </ul>
+            </div>
+            <!-- ################################################################################################ -->
+        </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row1">
+        <header id="header" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <div id="logo" class="one_quarter first">
+                <h1><a href="{%url 'admin_page'%}">Traveller</a></h1>
+                <h6>Plan Your Holiday</h6>
+            </div>
+            <div class="one_quarter"><strong><i class="fas fa-phone rgtspace-5"></i> Call Us:</strong> +91 (91) 41109785
+            </div>
+            <div class="one_quarter"><strong><i class="far fa-clock rgtspace-5"></i> Mon. - Sat.:</strong> 08.00am -
+                18.00pm</div>
+            <div class="one_quarter">
+                <form action="#" method="post">
+                    <label>
+                        <select>
+                            <option value="" selected="selected" disabled="disabled">Booking</option>
+                            <option value="English">Enquery</option>
+                            <option value="German">Booking</option>
+                            {% comment %} <option value="Spanish">Spanish</option> {% endcomment %}
+                            {% comment %} <option value="Spanish">French</option> {% endcomment %}
+                        </select>
+                    </label>
+                </form>
+            </div>
+            <!-- ################################################################################################ -->
+        </header>
+    </div>
+    
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row2">
+        <nav id="mainav" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <ul class="clear">
+                <li class="active"><a href="{%url 'admin_page'%}">Home</a></li>
+                <li><a class="drop" href="#">Destinations</a>
+                    <ul>
+                        <li><a href="{%url 'destiantion_list' %}">View Destinations</a></li>
+                        <li><a href="{%url 'add_destination' %}">Add Destinations</a></li>
+                        <li><a href="{%url 'update_destination' %}">Update Destinations</a></li>
+                        <li><a href="{%url 'delete_destination'%}">Delete Destinations</a></li>
+
+                    </ul>
+                </li>
+                <li><a class="drop" href="#">Packages</a>
+                    <ul>
+                        <li><a href="#">Packages</a>
+                            <ul>
+                                <li><a href="{%url 'view_packages'%}">View</a></li>
+                                <li><a href="{%url 'edit_package' %}">Edit</a></li>
+                                <li><a href="{%url 'delete_package' %}">Delete</a></li>
+                            </ul>
+                        <li><a href="{%url 'add_package' %}">Add New Packages</a></li>
+                        
+                        </li>
+                        <li><a href="#">Level 2</a></li>
+                    </ul>
+                </li>
+                <li><a class="drop" href="#">Gallery</a>
+                    <ul>
+                        <li><a href="#">Add Gallery Images</a></li>
+                        <li><a href="#">Edit Gallery</a>
+                    </ul>
+
+                </li>
+                <li><a class="drop" href="#">Offers</a>
+                    <ul>
+                        <li><a href="#">Add Offers</a></li>
+                        <li><a href="#">Edit Offers</a>
+                    </ul>
+
+                </li>
+                <li><a class="drop" href="#">Blog</a>
+                    <ul>
+                        <li><a href="#">Add Blog</a></li>
+                        <li><a href="#">Edit Blog</a>
+                    </ul>
+                </li>
+                <li><a class="drop" href="#">News</a>
+                    <ul>
+                        <li><a href="#">Add News</a></li>
+                        <li><a href="#">Edit News</a>
+                    </ul>
+                </li>
+            </ul>
+            <!-- ################################################################################################ -->
+        </nav>
+    </div>
+    {% block content %}
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper bgded overlay" style="background-image:url('static/images/demo/backgrounds/01.png');">
+        <div id="pageintro" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <article>
+                <p>Where the journey begins!</p>
+                <h3 class="heading">To the world of an incredible vacation</h3>
+                <p>No matter where you’re going from, we take you there</p>
+                <footer><a class="btn" href="#">Find Your Destination</a></footer>
+            </article>
+            <!-- ################################################################################################ -->
+        </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <!-- main body -->
+            <!-- ################################################################################################ -->
+            <section id="introblocks">
+                <div class="sectiontitle">
+                    <h6 class="heading">Travelling is Always a Good Idea</h6>
+                    <p>Explore World With Us</p>
+                </div>
+                <ul class="nospace group">
+                    <li class="one_third first">
+                        <article><a href="#"><i class="fa fa-map-signs"></i></a>
+                            <h6 class="heading">Destinations</h6>
+                            <p>“Only going places that spark joy.” </p>
+                            <footer><a class="btn" href="#">Explore Now</a></footer>
+                        </article>
+                    </li>
+                    <li class="one_third">
+                        <article><a href="#"><i class="fas fa-cube"></i></a>
+                            <h6 class="heading">Packages</h6>
+                            <p>“You don’t have to be rich to travel well.”</p>
+                            <footer><a class="btn" href="#">Explore Now</a></footer>
+                        </article>
+                    </li>
+                    <li class="one_third">
+                        <article><a href="#"><i class="fa fa-bed"></i></a>
+                            <h6 class="heading">Hotels</h6>
+                            <p>“ Find Your Better Stay ”</p>
+                            <footer><a class="btn" href="#">Explore Now</a></footer>
+                        </article>
+                    </li>
+                </ul>
+            </section>
+            <!-- ################################################################################################ -->
+            <hr class="btmspace-80">
+            <!-- ################################################################################################ -->
+            <section>
+                <div class="sectiontitle">
+                    <h6 class="heading">Destinations</h6>
+                    <p></p>
+                </div>
+                <ul class="nospace group overview">
+                    <li class="one_third">
+                        <figure><a href="#"><img src="{%static 'images/demo/backwater.png' %}" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Kerala/Kochi</h6>
+                                <p>'Queen of the Arabian Sea'</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="one_third">
+                        <figure><a href="#"><img src="{%static 'images/demo/Kanyakumari.png' %}" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Kanyakumari</h6>
+                                <p>The Virgin Princess is a town in Kanyakumari District in the state of Tamil Nadu</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="one_third">
+                        <figure><a href="#"><img src="{%static 'images/demo/Kashmir.png' %}" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Hendrerit leo vestibulum</h6>
+                                <p>Sed varius sed ex eros accumsan eget nisl a laoreet porta.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="one_third">
+                        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Euismod urna sed</h6>
+                                <p>Urna vestibulum suscipit lacus quis odio vestibulum venenatis.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="one_third">
+                        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+                            <figcaption>s
+                                <h6 class="heading">Tincidunt a posuere</h6>
+                                <p>Phasellus vel hendrerit lorem sed tristique lacus in auctor.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li class="one_third">
+                        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
+                            <figcaption>
+                                <h6 class="heading">Posuere elit vel</h6>
+                                <p>Euismod libero sodales ut cum sociis natoque penatibus et magnis.</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </section>
+            <!-- ################################################################################################ -->
+            <!-- / main body -->
+            <div class="clear"></div>
+        </main>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper coloured">
+        <article class="hoc cta clear">
+            <!-- ################################################################################################ -->
+            <h6 class="three_quarter first">Dis parturient montes nascetur ridiculus mus vivamus</h6>
+            <footer class="one_quarter"><a class="btn" href="#">Porta risus purus</a></footer>
+            <!-- ################################################################################################ -->
+        </article>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row3">
+        <section class="hoc container clear">
+            <!-- ################################################################################################ -->
+            <div class="sectiontitle">
+                <h6 class="heading">Et ipsum suscipit sit amet</h6>
+                <p>Molestie dolor blandit mauris porta quam erat ut laoreet velit</p>
+            </div>
+            <ul class="nospace group latest">
+                <li class="one_third first">
+                    <article>
+                        <time datetime="2045-04-06T08:15+00:00"><i class="far fa-calendar-alt rgtspace-5"></i>
+                            06<sup>th</sup> April 2045 @ 15:00pm</time>
+                        <div class="excerpt">
+                            <h6 class="heading">ac finibus purus pulvinar quis suspendisse varius</h6>
+                            <p>condimentum sem ac euismod tortor semper sit amet fusce pretium justo nec faucibus
+                                finibus libero odio porttitor magna et semper mi velit maximus nisi nullam accumsan
+                                massa [<a href="#">&hellip;</a>]</p>
+                            <ul class="meta">
+                                <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li>
+                                <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Tag 1</a>, <a href="#">Tag 2</a>
+                                </li>
+                            </ul>
+                            <footer><a class="btn" href="#">Read More</a></footer>
+                        </div>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article>
+                        <time datetime="2045-04-05T08:14+00:00"><i class="far fa-calendar-alt rgtspace-5"></i>
+                            05<sup>th</sup> April 2045 @ 14:00pm</time>
+                        <div class="excerpt">
+                            <h6 class="heading">dapibus nulla a tristique risus vivamus ut metus</h6>
+                            <p>turpis integer ac neque ac risus malesuada tincidunt vestibulum rutrum luctus lobortis ut
+                                tincidunt nulla at luctus aliquet mi magna sagittis sem id dapibus dui ex at augue etiam
+                                [<a href="#">&hellip;</a>]</p>
+                            <ul class="meta">
+                                <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li>
+                                <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Tag 1</a>, <a href="#">Tag 2</a>
+                                </li>
+                            </ul>
+                            <footer><a class="btn" href="#">Read More</a></footer>
+                        </div>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article>
+                        <time datetime="2045-04-04T08:13+00:00"><i class="far fa-calendar-alt rgtspace-5"></i>
+                            04<sup>th</sup> April 2045 @ 13:00pm</time>
+                        <div class="excerpt">
+                            <h6 class="heading">lacinia et mauris sit amet bibendum vulputate sem</h6>
+                            <p>duis vulputate at massa et sollicitudin erat eget suspendisse dignissim ultrices
+                                hendrerit donec aliquam risus a porta fermentum donec a mi pulvinar ex auctor eleifend
+                                eu finibus [<a href="#">&hellip;</a>]</p>
+                            <ul class="meta">
+                                <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li>
+                                <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Tag 1</a>, <a href="#">Tag 2</a>
+                                </li>
+                            </ul>
+                            <footer><a class="btn" href="#">Read More</a></footer>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+            <!-- ################################################################################################ -->
+        </section>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row2">
+        <figure class="hoc container clear clients">
+            <!-- ################################################################################################ -->
+            <ul class="nospace group">
+                <li class="one_quarter first"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
+                <li class="one_quarter"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
+                <li class="one_quarter"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
+                <li class="one_quarter"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
+            </ul>
+            <!-- ################################################################################################ -->
+        </figure>
+    </div>
+
+    {% endblock  %}
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row4">
+        <footer id="footer" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <div class="one_quarter first">
+                <h6 class="heading">Contact</h6>
+                <ul class="nospace btmspace-30 linklist contact">
+                    <li><i class="fas fa-map-marker-alt"></i>
+                        <address>
+                            Street Name &amp; Number, Town, Postcode/Zip
+                        </address>
+                    </li>
+                    <li><i class="fas fa-phone"></i> +91 (91) 41109785</li>
+                    <li><i class="far fa-envelope"></i> info@domain.com</li>
+                </ul>
+                <ul class="faico clear">
+                    <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a class="faicon-dribble" href="#"><i class="fab fa-dribbble"></i></a></li>
+                    <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="one_quarter">
+                <h6 class="heading">Utilitiy</h6>
+                <ul class="nospace linklist">
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">Packages</a></li>
+                    <li><a href="#">Price List</a></li>
+                    <li><a href="#">Most Viewed</a></li>
+                    <li><a href="#">Offers</a></li>
+                </ul>
+            </div>
+            <div class="one_quarter">
+                <h6 class="heading">About US</h6>
+                <ul class="nospace linklist">
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Aboout</a></li>
+                    <li><a href="#">Feed Backs</a></li>
+                    <li><a href="#">Complaints</a></li>
+                    <li><a href="#">Carrers</a></li>
+                </ul>
+            </div>
+            <div class="one_quarter">
+                <h6 class="heading">Enquery</h6>
+                <p class="nospace btmspace-15">We Valued your Responds will touch you soon</p>
+                <form method="post" action="#">
+                    <fieldset>
+                        <legend>Newsletter:</legend>
+                        <input class="btmspace-15" type="text" value="" placeholder="Name">
+                        <input class="btmspace-15" type="text" value="" placeholder="Email">
+                        <button type="submit" value="submit">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+            <!-- ################################################################################################ -->
+        </footer>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row5">
+        <div id="copyright" class="hoc clear">
+            <!-- ################################################################################################ -->
+            <p class="fl_left">Copyright &copy; 2022 - All Rights Reserved - <a href="#">Domain Name</a></p>
+            <p class="fl_right">Template by <a target="_blank" href="#" title="Free Website Templates">Zion</a></p>
+            <!-- ################################################################################################ -->
+        </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+    <!-- JAVASCRIPTS -->
+    <script src="{%static 'scripts/jquery.min.js' static%}"></script>
+    <script src="{%static 'scripts/jquery.backtotop.js' static%}"></script>
+    <script src="{%static 'scripts/jquery.mobilemenu.js' static%}"></script>
+</body>
+
+</html>

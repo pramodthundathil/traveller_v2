@@ -1,0 +1,325 @@
+{% load static %}
+{% static "images" as baseurl %}
+<!DOCTYPE html>
+<html lang="">
+<head>
+<title>Traveller</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row0">
+  <div id="topbar" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="fl_left">
+      <ul class="nospace">
+        <li><a href="{%url 'home'%}"><i class="fas fa-home fa-lg"></i></a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        {% if request.user.is_authenticated %}
+        <li><a href="{%url 'signout' %}">{{request.user}} Logout</a></li>
+        {% else %}
+        <li><a href="{%url 'signup' %}">Login</a></li>
+        <li><a href="{%url 'registration'%}">Register</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <div class="fl_right">
+      <ul class="nospace">
+        <li><i class="fas fa-phone rgtspace-5"></i> +91 (91) 41109785 </li>
+        <li><i class="fas fa-envelope rgtspace-5"></i> info@domain.com</li>
+      </ul>
+    </div>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div id="logo" class="one_quarter first">
+      <h1><a href="{%url 'home'%}">Traveller</a></h1>
+      <h6>Plan Your Holiday</h6>
+    </div>
+    <div class="one_quarter"><strong><i class="fas fa-phone rgtspace-5"></i> Call Us:</strong> +91 (91) 41109785</div>
+    <div class="one_quarter"><strong><i class="far fa-clock rgtspace-5"></i> Mon. - Sat.:</strong> 08.00am - 18.00pm</div>
+    <div class="one_quarter">
+      {% comment %} <form action="#" method="post">
+        <label>
+          <select>
+            <option value="" selected="selected" disabled="disabled">Booking</option>
+            <option value="English">Enquery</option>
+            <option value="German">Booking</option>
+            {% comment %} <option value="Spanish">Spanish</option> {% endcomment %}
+            {% comment %} <option value="Spanish">French</option> {% endcomment %}{% comment %}
+          </select>
+        </label>
+      </form> {% endcomment %}
+    </div>
+    <!-- ################################################################################################ -->
+  </header>
+</div>
+{% block content %}
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2">
+  <nav id="mainav" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <ul class="clear">
+      <li class="active"><a href="{%url 'home'%}">Home</a></li>
+      <li><a class="drop" href="#">Destinations</a>
+        <ul>
+          <li><a href="pages/gallery.html">Gallery</a></li>
+          <li><a href="pages/full-width.html">Full Width</a></li>
+          <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
+          <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
+          <li><a href="pages/basic-grid.html">Basic Grid</a></li>
+          <li><a href="pages/font-icons.html">Font Icons</a></li>
+        </ul>
+      </li>
+      <li><a  href="{%url 'package_customer_view' %}">Packages</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">Offers</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">News</a></li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </nav>
+</div>
+
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay" style="background-image:url('static/images/demo/backgrounds/01.png');">
+  <div id="pageintro" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <article>
+      <p>Where the journey begins!</p>
+      <h3 class="heading">To the world of an incredible vacation</h3>
+      <p>No matter where you’re going from, we take you there</p>
+      <footer><a class="btn" href="{%url 'destination_customer_view' %}">Find Your Destination</a></footer>
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <section id="introblocks">
+      <div class="sectiontitle">
+        <h6 class="heading">Travelling is Always a Good Idea</h6>
+        <p>Explore World With Us</p>
+      </div>
+      <ul class="nospace group">
+        <li class="one_third first">
+          <article><a href="#"><i class="fa fa-map-signs"></i></a>
+            <h6 class="heading">Destinations</h6>
+            <p>“Only going places that spark joy.” </p>
+            <footer><a class="btn" href="{%url 'destination_customer_view' %}">Explore Now</a></footer>
+          </article>
+        </li>
+        <li class="one_third">
+          <article><a href="#"><i class="fas fa-cube"></i></a>
+            <h6 class="heading">Packages</h6>
+            <p>“You don’t have to be rich to travel well.”</p>
+            <footer><a class="btn" href="{%url 'package_customer_view' %}">Explore Now</a></footer>
+          </article>
+        </li>
+        <li class="one_third">
+          <article><a href="#"><i class="fa fa-bed"></i></a>
+            <h6 class="heading">Hotels</h6>
+            <p>“ Find Your Better Stay ”</p>
+            <footer><a class="btn" href="#">Explore Now</a></footer>
+          </article>
+        </li>
+      </ul>
+    </section>
+    <!-- ################################################################################################ -->
+    <hr class="btmspace-80">
+    <!-- ################################################################################################ -->
+    <section>
+      <div class="sectiontitle">
+        <h6 class="heading">Destinations</h6>
+        <p></p>
+      </div>
+      <ul class="nospace group overview">
+     
+      {% for Destination_List_item in Destination_List_items|slice:":6" %}
+      
+        <li class="one_third">
+          <figure><a href="#"><img src="{{Destination_List_item.Destination_image.url}}" alt=""></a>
+            <figcaption>
+              <h6 class="heading">{{Destination_List_item.Destination_Name}}/{{Destination_List_item.Destination_state}}</h6>
+              <p><q>{{Destination_List_item.Destination_discription}}</q></p>
+            </figcaption>
+          </figure>
+        </li>
+        {% endfor %}
+        
+        {% comment %}}
+      </ul>
+    </section>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper coloured">
+  <article class="hoc cta clear"> 
+    <!-- ################################################################################################ -->
+    <h6 class="three_quarter first"></h6>
+    {% comment %} <footer class="one_quarter"><a class="btn" href="#">Porta risus purus</a></footer> {% endcomment %}
+    <!-- ################################################################################################ -->
+  </article>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <section class="hoc container clear"> 
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+      <h6 class="heading">Packages</h6>
+      <p>“You don’t have to be rich to travel well.”</p>
+    </div>
+    
+    <ul class="nospace group overview">
+     
+      {% for pack in package|slice:":6"%}
+      
+      <li class="one_third" style="padding-bottom:20px">
+        <article>
+          <h6 class="heading">{{pack.Package_destination}}</h6>
+          <time datetime="2045-04-05T08:14+00:00">{{pack.Package_duration}} - <sup>Package Price </sup>₹{{pack.Package_price}}</time>
+          <div class="excerpt">
+            
+            <p>{{pack.Package_discription}}[<a href="#">&hellip;</a>]<br> Food Status: {{pack.Package_foodstatus}} </p>
+            <p>Start Point: KOCHI - Destination : {{pack.Package_destination}}
+            <footer>
+              <form action ="{%url 'booking_form' %}" method="post">
+                {% csrf_token %}
+                <button value="{{pack.Package_id}}" class="btn btn-bt-primery" name="submit">Booknow</button>
+            </form>
+          </footer>
+          </div>
+        </article>
+      </li>
+      {% endfor %}
+     
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2">
+  <figure class="hoc container clear clients"> 
+    <!-- ################################################################################################ -->
+    <ul class="nospace group">
+      <li class="one_quarter first"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
+      <li class="one_quarter"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
+      <li class="one_quarter"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
+      <li class="one_quarter"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </figure>
+</div>
+
+{% endblock %}
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row4">
+  <footer id="footer" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="one_quarter first">
+      <h6 class="heading">Contact</h6>
+      <ul class="nospace btmspace-30 linklist contact">
+        <li><i class="fas fa-map-marker-alt"></i>
+          <address>
+          Street Name &amp; Number, Town, Postcode/Zip
+          </address>
+        </li>
+        <li><i class="fas fa-phone"></i> +91 (91) 41109785</li>
+        <li><i class="far fa-envelope"></i> info@domain.com</li>
+      </ul>
+      <ul class="faico clear">
+        <li><a class="faicon-facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+        <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a class="faicon-dribble" href="#"><i class="fab fa-dribbble"></i></a></li>
+        <li><a class="faicon-linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Utilitiy</h6>
+      <ul class="nospace linklist">
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">Packages</a></li>
+        <li><a href="#">Price List</a></li>
+        <li><a href="#">Most Viewed</a></li>
+        <li><a href="#">Offers</a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">About US</h6>
+      <ul class="nospace linklist">
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Aboout</a></li>
+        <li><a href="#">Feed Backs</a></li>
+        <li><a href="#">Complaints</a></li>
+        <li><a href="#">Carrers</a></li>
+      </ul>
+    </div>
+    <div class="one_quarter">
+      <h6 class="heading">Enquery</h6>
+      <p class="nospace btmspace-15">We Valued your Responds will touch you soon</p>
+      <form method="post" action="#">
+        <fieldset>
+          <legend>Newsletter:</legend>
+          <input class="btmspace-15" type="text" value="" placeholder="Name">
+          <input class="btmspace-15" type="text" value="" placeholder="Email">
+          <button type="submit" value="submit">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+    <!-- ################################################################################################ -->
+  </footer>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row5">
+  <div id="copyright" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <p class="fl_left">Copyright &copy; 2022 - All Rights Reserved - <a href="#">Domain Name</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="#" title="Free Website Templates">Zion</a></p>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="{%static 'scripts/jquery.min.js' static%}"></script>
+<script src="{%static 'scripts/jquery.backtotop.js' static%}"></script>
+<script src="{%static 'scripts/jquery.mobilemenu.js' static%}"></script>
+</body>
+</html>

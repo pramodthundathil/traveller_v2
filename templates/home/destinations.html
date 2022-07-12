@@ -1,0 +1,73 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="wrapper row2">
+    <nav id="mainav" class="hoc clear"> 
+      <!-- ################################################################################################ -->
+      <ul class="clear">
+        <li class="active"><a href="{%url 'home'%}">Home</a></li>
+        <li><a class="drop" href="#">Destinations</a>
+          <ul>
+            <li><a href="pages/gallery.html">Gallery</a></li>
+            <li><a href="pages/full-width.html">Full Width</a></li>
+            <li><a href="pages/sidebar-left.html">Sidebar Left</a></li>
+            <li><a href="pages/sidebar-right.html">Sidebar Right</a></li>
+            <li><a href="pages/basic-grid.html">Basic Grid</a></li>
+            <li><a href="pages/font-icons.html">Font Icons</a></li>
+          </ul>
+        </li>
+        <li><a href="{%url 'package_customer_view' %}">Packages</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Offers</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
+      <!-- ################################################################################################ -->
+    </nav>
+  </div>
+
+  <div class="wrapper row3">
+    <main class="hoc container clear"> 
+  <hr class="btmspace-80">
+    <!-- ################################################################################################ -->
+    <section>
+      <div class="sectiontitle">
+        <h6 class="heading">Destinations</h6>
+        <p></p>
+      </div>
+      <ul class="nospace group overview">
+     
+      {% for Destination_List_item in Destination_List_items %}
+      
+        <li class="one_third">
+          <figure><a href="#"><img src="{{Destination_List_item.Destination_image.url}}" alt=""></a>
+            <figcaption>
+              <h6 class="heading">{{Destination_List_item.Destination_Name}}/{{Destination_List_item.Destination_state}}</h6>
+              <p><q>{{Destination_List_item.Destination_discription}}</q></p>
+            </figcaption>
+          </figure>
+          <br><h1>{{Destination_List_item.Destination_Name}}</h1>
+        </li>
+        {% endfor %}
+        
+      </ul>
+    </section>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper coloured">
+  <article class="hoc cta clear"> 
+    <!-- ################################################################################################ -->
+    <h6 class="three_quarter first"></h6>
+    {% comment %} <footer class="one_quarter"><a class="btn" href="#">Porta risus purus</a></footer> {% endcomment %}
+    <!-- ################################################################################################ -->
+  </article>
+</div>
+  
+
+{% endblock content %}

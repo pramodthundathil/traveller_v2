@@ -1,0 +1,131 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="wrapper row3">
+    <main class="hoc container clear">
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="content">
+
+        <div class="content"> 
+          <!-- ################################################################################################ -->
+          <h2>Selected Package</h2>
+          <!-- ################################################################################################ -->
+        {% for package in packages %}
+          <div class="group btmspace-50 demo">
+            <div class="one_half first">
+              <table>
+                <tr>
+                  <td>Package:</td><td>{{package.Package_id}}/{{package.Package_destination_id}}</td>
+                </tr>
+                  <tr>
+                    <td>Destination:</td><td>{{package.Package_destination}}</td>
+                  </tr>
+                  <tr>
+                    <td>Price:</td><td>{{package.Package_price}}</td>
+                  </tr>
+              </table>
+
+            </div>
+            <div class="one_half">
+              <table>
+                <tr>
+                  <td>Package Discription</td><td>{{package.Package_discription}}</td>
+                </tr>
+                  <tr>
+                    <td>Duration:</td><td>{{package.Package_duration}}</td>
+                  </tr>
+                  <tr>
+                    <td>Transortation & Food:</td><td>{{package.Package_Transpotation_status}},{{package.Package_foodstatus}}</td>
+                  </tr>
+              </table>
+
+
+            </div>
+          </div>
+          {% endfor %}
+          
+        <!-- ################################################################################################ -->
+        <div id="comments">
+          <h2>Book Package</h2>
+          {% for message in messages %}
+          <h3 style="color: Green;"> {{message}} </h3>
+          {% endfor %}
+          
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {%for package in packages %}
+            <div class="one_third first">
+              <label for="package_des">Destination <span>*</span></label>
+              <input type="text" name="destination" id="email" value="{{package.Package_destination}}" size="22" disabled>
+            </div>
+            <div class="one_third">
+              <label for="duration">Destination ID: <span>*</span></label>
+              <input type="text" name="DID" id="email" value="{{package.Package_destination_id}}" size="22" disabled>
+            </div>
+            <div class="one_third">
+              <label for="price">Package ID: <span>*</span></label>
+              <input type="text" name="PID" id="email" value="{{package.Package_id}}" size="22" disabled>
+            </div>
+            <div class="one_third first">
+                <label for="package_des">Full Name: <span>*</span></label>
+                <input type="text" name="fname" id="email" value="" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="duration">Number Of Guests: <span>*</span></label>
+                <input type="number" name="gcount" id="email" value="" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="price">Number of Chilldern(below5) <span>*</span></label>
+                <input type="number" name="ccount" id="email" value="" size="22" required>
+              </div>
+              <div class="one_third first">
+                <label for="sdate">Trip start date: <span>*</span></label>
+                <input type="date" name="sdate" id="name" value="" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="trans">Trip End Date: <span>*</span></label>
+                <input type="date" name="Edate" id="email" value="" size="22" required>
+              </div>
+            
+              <div class="one_third first">
+                <label for="pnumber">Phone Number: <span>*</span></label>
+                <input type="number" name="pnumber" id="name" value=""  size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="trans">Email ID: <span>*</span></label>
+                <input type="email" name="email" id="email" value="" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="dis">Address name:<span>*</span></label>
+                <input type="text" name="Address" id="email" value="" size="22" required>
+              </div>
+              <div class="one_third first">
+                <label for="f_status">Locality: <span>*</span></label>
+                <input type="text" name="locality" id="name" value="" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="trans">State : <span>*</span></label>
+                <input type="text" name="state" id="email" value="" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="dis">Contry:<span>*</span></label>
+                <input type="text" name="contry" id="email" value="" size="22" required>
+              </div>
+              
+              <div class="one_third">
+                <button type="submit" class="btn" name="submit" value="{{package.Package_id}}">Book Now<button>
+                
+              </div>
+              {% endfor %}
+          </form>
+        </div>
+      </div>
+      <!-- ################################################################################################ -->
+      <!-- / main body -->
+      <div class="clear"></div>
+    </main>
+  </div>
+<br><br>
+
+{% endblock %}

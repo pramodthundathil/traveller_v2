@@ -1,0 +1,44 @@
+{% extends 'admin_index.html' %}
+{% block content %}
+
+<div class="wrapper row3">
+    <main class="hoc container clear"> 
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="content"> 
+        <!-- ################################################################################################ -->
+        {% for message in messages %}
+          <h3 style="color: red;"> {{message}} </h3>
+          {% endfor %}
+        <div class="scrollable">
+          <table>
+            <thead>
+              <tr>
+                <th>Destination Name</th>
+                <th>Package Duration and Price</th>
+                <th>Package Discription</th>
+                <th>Package ID</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for package in package_list %}
+              <tr>
+                <td><a href="#">{{package.Package_destination}}</a></td>
+                <td>{{package.Package_duration}} Price: {{package.Package_price}}</td>
+                <td>{{package.Package_discription}} / Transortation Status:{{package.Package_Transpotation_status}} / Food status:{{package.Package_foodstatus}}</td>
+                <td>{{package.Package_id}}</td>
+                <form method='post'>
+                    {% csrf_token %}
+                <td><button name="submit" value = "{{package.Package_id}}" class="btn btn-danger" style="background-color:#F9461F">Delete</button></td>
+                </form>
+              </tr>
+              {% endfor %}
+              
+            </tbody>
+          </table>
+        </div>
+    </main>
+</div>
+
+{% endblock content %}
