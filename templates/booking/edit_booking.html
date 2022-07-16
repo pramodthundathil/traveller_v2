@@ -1,0 +1,106 @@
+{% extends 'admin_index.html' %}
+{% block content %}
+<div class="wrapper row3">
+    <main class="hoc container clear">
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="content">
+
+        <div class="content"> 
+          <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <div id="comments">
+          <h2>Book Information</h2>
+          {% for message in messages %}
+          <h3 style="color: Green;"> {{message}} </h3>
+          {% endfor %}
+          
+          <form method="post" action= "{%url 'booking_create' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {%for book in booking %}
+            {%for pack in package%}
+            <div class="one_third first">
+              
+              <label for="package_des">Destination <span>*</span></label>
+              <input type="text" name="destination" id="email" value="{{pack.Package_destination}}" size="22" disabled>
+              
+            </div>
+            <div class="one_third">
+              <label for="price">Package ID: <span>*</span></label>
+              <input type="text" name="PID" id="email" value="{{pack.Package_id}}" size="22" disabled>
+            </div>
+            <div class="one_third">
+              <label for="duration">Destination ID: <span>*</span></label>
+              <input type="text" name="DID" id="email" value="{{pack.Package_destination_id}}" size="22" disabled>
+            </div>
+            <div class="one_third first">
+                <label for="package_des">Full Name: <span>*</span></label>
+                <input type="text" name="fname" id="email" value="{{book.Name}}" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="duration">Number Of Guests: <span>*</span></label>
+                <input type="number" name="gcount" id="email" value="{{book.Number_of_Gusts}}" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="price">Number of Chilldern(below5) <span>*</span></label>
+                <input type="number" name="ccount" id="email" value="{{book.Number_of_Gusts_below5}}" size="22" required>
+              </div>
+              <div class="one_third first">
+                <label for="price">Price: <span>*</span></label>
+                <input type="text" name="price" id="name" value="{{pack.Package_price}}" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="trans">Start End Date: <span>*</span></label>
+                <input type="text" name="Edate" id="email" value="{{book.trip_start_date}}" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="trans">Trip Duration: <span>*</span></label>
+                <input type="text" name="Edate" id="email" value="{{pack.Package_duration}}" size="22" required>
+              </div>
+            
+              <div class="one_third first">
+                <label for="pnumber">Phone Number: <span>*</span></label>
+                <input type="number" name="pnumber" id="name" value="{{book.phone}}"  size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="trans">Email ID: <span>*</span></label>
+                <input type="email" name="email" id="email" value="{{book.email}}" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="dis">Address name:<span>*</span></label>
+                <input type="text" name="Address" id="email" value="{{book.Address_House}}" size="22" required>
+              </div>
+              <div class="one_third first">
+                <label for="f_status">Locality: <span>*</span></label>
+                <input type="text" name="locality" id="name" value="{{book.Locality}}" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="trans">State : <span>*</span></label>
+                <input type="text" name="state" id="email" value="{{book.state}}" size="22" required>
+              </div>
+              <div class="one_third">
+                <label for="dis">Contry:<span>*</span></label>
+                <input type="text" name="contry" id="email" value="{{book.Country}}" size="22" required>
+              </div>
+              <div class="one_third first">
+                <h5>Booking Status:</h5><h5 style="color:Green">{{book.Payment_status}}</h5>
+              </div>
+              <div class="one_third">
+                <button type="submit" class="btn" name="submit" value="{{book.Bookingid}}">Approve</button>
+              </div>
+              <div class="one_third">
+                <button type="submit" class="btn" name="submit" value="{{book.Bookingid}}">Reject</button>
+              </div>
+              {% endfor %}
+              {% endfor %}
+          </form>
+        </div>
+      </div>
+      <!-- ################################################################################################ -->
+      <!-- / main body -->
+      <div class="clear"></div>
+    </main>
+  </div>
+<br><br>
+
+{% endblock %}

@@ -52,7 +52,7 @@
           <h3 style="color: Green;"> {{message}} </h3>
           {% endfor %}
           
-          <form method="post" enctype="multipart/form-data">
+          <form method="post" action= "{%url 'booking_create' %}" enctype="multipart/form-data">
             {% csrf_token %}
             {%for package in packages %}
             <div class="one_third first">
@@ -60,12 +60,12 @@
               <input type="text" name="destination" id="email" value="{{package.Package_destination}}" size="22" disabled>
             </div>
             <div class="one_third">
-              <label for="duration">Destination ID: <span>*</span></label>
-              <input type="text" name="DID" id="email" value="{{package.Package_destination_id}}" size="22" disabled>
-            </div>
-            <div class="one_third">
               <label for="price">Package ID: <span>*</span></label>
               <input type="text" name="PID" id="email" value="{{package.Package_id}}" size="22" disabled>
+            </div>
+            <div class="one_third">
+              <label for="duration">Destination ID: <span>*</span></label>
+              <input type="text" name="DID" id="email" value="{{package.Package_destination_id}}" size="22" disabled>
             </div>
             <div class="one_third first">
                 <label for="package_des">Full Name: <span>*</span></label>
@@ -115,7 +115,6 @@
               
               <div class="one_third">
                 <button type="submit" class="btn" name="submit" value="{{package.Package_id}}">Book Now<button>
-                
               </div>
               {% endfor %}
           </form>

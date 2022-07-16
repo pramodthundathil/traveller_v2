@@ -1,12 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class BookingPackage(models.Model):
     
     Bookingid = models.AutoField(primary_key=True)
     Package_id = models.CharField(max_length=100)
-    Destination_id = models.CharField(max_length=100)
-    customer_id = models.CharField(max_length=100)
+    Destination_id = models.CharField(max_length=100,null=True)
+    customer_id = models.ForeignKey(User, on_delete=models.CASCADE)
     Name = models.CharField(max_length=200)
     Number_of_Gusts  = models.CharField(max_length=100)
     Number_of_Gusts_below5 = models.CharField(max_length=100, null=True)

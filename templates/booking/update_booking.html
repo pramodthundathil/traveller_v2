@@ -1,0 +1,46 @@
+{% extends 'admin_index.html' %}
+{% block content %}
+<div class="wrapper row3">
+    <main class="hoc container clear"> 
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="content"> 
+        <!-- ################################################################################################ -->
+        {% for message in messages %}
+          <h3 style="color: red;"> {{message}} </h3>
+          {% endfor %}
+        <div class="scrollable">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer name</th>
+                <th>Package</th>
+                <th>Customer Phone</th>
+                <th>Number of Guests</th>
+                <th>Payment ststus</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for booking in bookings %}
+              <tr>
+                
+                <td><a href="#">{{booking.Name}}</a></td>
+                <td>{{booking.Package_id}} date: {{booking.trip_start_date }}/</td>
+                <td>{{booking.phone}}</td>
+                <td>{{booking.Number_of_Gusts}} / Infent:{{booking.Number_of_Gusts_below5}}</td>
+                <td>{{booking.Payment_status}}/Amount:{{booking.Payment_amount}}</td>
+                
+                <form method='post'>
+                    {% csrf_token %}
+                <td><button name="submit" value = "{{booking.Bookingid}}" class="btn btn-primary" >View</button></td>
+                </form>
+              </tr>
+              {% endfor %}
+              
+            </tbody>
+          </table>
+        </div>
+    </main>
+</div>
+{%endblock%}
