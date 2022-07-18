@@ -1,0 +1,16 @@
+python
+Django
+django-heroku
+dj-database-url
+gunicorn
+joblib
+numpy
+pandas
+psycopg2
+python-dateutil
+pytz
+scikit-learn
+scipy
+six
+sqlparse
+whitenoise
