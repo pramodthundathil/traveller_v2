@@ -1,6 +1,6 @@
-from email.headerregistry import Address
-import imp
+
 from importlib.resources import Package
+from django.contrib import messages
 from django.shortcuts import redirect, render
 from packages.models import Packages
 from .models import BookingPackage
@@ -33,13 +33,18 @@ def booking_create(request):
     contry = request.POST['contry']
     
     booking = BookingPackage.objects.create(Package_id = package_id,customer_id = request.user,Name = customer_fullname,Number_of_Gusts = guest_count,Number_of_Gusts_below5 = infent_number,Address_House = address ,Locality = locality ,state = state,Country = contry,phone = phone_number,email = email ,trip_start_date = start_date ,Payment_amount =False,approval_status = False)
-    
-    packages = Packages.objects.filter(Package_id = package_id)    
     booking.save()
+    
+    packages = Packages.objects.filter(Package_id = package_id)
+    package = Packages.objects.get(Package_id = package_id) 
+    price = package.Package_price
+    
+    total_amount = float(price) * int(guest_count) + float(price)/2 * int(infent_number)
+    
     booking_id = booking.Bookingid
     
         
-    return render(request,"booking/payment.html",{"Packages":packages,"booking_id":booking_id})
+    return render(request,"booking/payment.html",{"Packages":packages,"booking":booking,"total_amount":total_amount})
 
 @login_required(login_url='signup')
 def update_booking(request):
@@ -56,7 +61,56 @@ def update_booking(request):
     return render(request,'booking/update_booking.html',{"bookings":bookings})
 
 @login_required(login_url='signup')
-def edit_booking(request):
+def approve_booking(request):
     
-    pass
+    booking_id = request.POST['submit']
+    booking = BookingPackage.objects.get(Bookingid=booking_id)
+    booking.Payment_status = True
+    booking.save()
+    return redirect ('update_booking')
+
+@login_required(login_url='signup')
+def reject_booking(request):
+    
+    booking_id = request.POST['submit']
+    booking = BookingPackage.objects.get(Bookingid=booking_id)
+    booking.Payment_status = False
+    booking.save()
+    return redirect ('update_booking')
+@login_required(login_url='signup')
+def pending_booking(request):
+    
+    booking_id = request.POST['submit']
+    booking = BookingPackage.objects.get(Bookingid=booking_id)
+    booking.Payment_status = None
+    booking.save()
+    return redirect ('update_booking')
+
+@login_required(login_url='signup')
+def customer_booking(request):
+    
+    user = request.user
+    bookings = BookingPackage.objects.filter(customer_id = user)
+    
+    if request.method == 'POST':
+        
+        booking_id = request.POST['submit']
+        booking = BookingPackage.objects.get(Bookingid=booking_id)
+        booking.Payment_status = None
+        booking.save()
+        return redirect ('customer_booking')
+    
+    return render(request,'booking/customer_booking.html',{"bookings":bookings})
+
+@login_required(login_url="signup")
+def delete_booking(request):
+    
+    booking_id = request.POST['submit']
+    booking = BookingPackage.objects.get(Bookingid=booking_id)
+    booking.delete()
+    messages.info(request,"Booking Deleted successfuly")
+    return redirect ('update_booking')
+
+    
+    
         

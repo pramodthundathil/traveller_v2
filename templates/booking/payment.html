@@ -1,4 +1,29 @@
 {% extends 'index.html' %}
 {% block content %}
-<h1>Please Choose payment<h1>
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <!-- main body -->
+        <!-- ################################################################################################ -->
+        <div class="content">
+            <!-- ################################################################################################ -->
+            <h2>Payment Status</h2>
+            <!-- ################################################################################################ -->
+            <div class="group btmspace-50 demo">
+                <div class="one_half first">
+                    {% for pack in Packages  %}
+                    <h4>Destination: {{pack.Package_destination}}</h4>
+                    <h4>Package ID: {{pack.Package_id }}</h4>
+                    <h4>Payment Amount: {{total_amount}}</h4>
+                    {% endfor %}
+                </div>
+                <div class="one_half">
+                    Amount Payable : <b>{{total_amount}}</b><br><br>
+                    <button class="btn btn-success" style="width:50%">
+                        Pay now
+                    </div>
+            </div>
+        </div>
+    </main>
+</div>
+
 {% endblock content %}

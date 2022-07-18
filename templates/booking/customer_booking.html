@@ -1,4 +1,4 @@
-{% extends 'admin_index.html' %}
+{% extends 'index.html' %}
 {% block content %}
 <div class="wrapper row3">
     <main class="hoc container clear"> 
@@ -7,11 +7,7 @@
       <div class="content"> 
         <!-- ################################################################################################ -->
         {% for message in messages %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>Message</strong> {{message}}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-          <h3 style="color: red;">  </h3>
+          <h3 style="color: red;"> {{message}} </h3>
           {% endfor %}
         <div class="scrollable">
           <table>
@@ -44,7 +40,7 @@
                 
                 <form method='post'>
                     {% csrf_token %}
-                <td><button name="submit" value = "{{booking.Bookingid}}" class="btn btn-primary" >View</button></td>
+                <td><button name="submit" value = "{{booking.Bookingid}}" class="btn btn-primary" >Cancel Booking</button></td>
                 </form>
               </tr>
               {% endfor %}

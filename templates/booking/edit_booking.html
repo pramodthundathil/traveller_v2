@@ -10,12 +10,12 @@
           <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
         <div id="comments">
-          <h2>Book Information</h2>
+          <h2>Booking Information</h2>
           {% for message in messages %}
           <h3 style="color: Green;"> {{message}} </h3>
           {% endfor %}
           
-          <form method="post" action= "{%url 'booking_create' %}" enctype="multipart/form-data">
+          
             {% csrf_token %}
             {%for book in booking %}
             {%for pack in package%}
@@ -86,14 +86,28 @@
                 <h5>Booking Status:</h5><h5 style="color:Green">{{book.Payment_status}}</h5>
               </div>
               <div class="one_third">
+                <form method="post" action= "{%url 'delete_booking' %}" enctype="multipart/form-data">{% csrf_token %}
+                <button type="submit" class="btn btn-danger" style="background-color:red" name="submit" value="{{book.Bookingid}}">Delete Booking</button>
+              </form>
+              </div>
+              <div class="one_third first">
+                <form method="post" action= "{%url 'approve_booking' %}" enctype="multipart/form-data">{% csrf_token %}
                 <button type="submit" class="btn" name="submit" value="{{book.Bookingid}}">Approve</button>
+              </form>
               </div>
               <div class="one_third">
+                <form method="post" action= "{%url 'reject_booking' %}" enctype="multipart/form-data">{% csrf_token %}
                 <button type="submit" class="btn" name="submit" value="{{book.Bookingid}}">Reject</button>
+              </form>
+              </div>
+              <div class="one_third">
+                <form method="post" action= "{%url 'pending_booking' %}" enctype="multipart/form-data">{% csrf_token %}
+                <button type="submit" class="btn" name="submit" value="{{book.Bookingid}}">Process</button>
+              </form>
               </div>
               {% endfor %}
               {% endfor %}
-          </form>
+          
         </div>
       </div>
       <!-- ################################################################################################ -->
