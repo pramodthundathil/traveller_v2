@@ -1,0 +1,76 @@
+{% extends "index.html" %}
+{% block content %}
+<style>
+    #gallery li{
+        float: left !important;
+        padding: 20px;
+    }
+    #gallery img{
+        width:300px;
+        height: 200px;
+    }
+</style>
+
+<div class="wrapper row2">
+  <nav id="mainav" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <ul class="clear">
+      <li class="active"><a href="{%url 'home'%}">Home</a></li>
+      <li><a  href="{%url 'destination_customer_view' %}">Destinations</a></li>
+      <li><a href="{%url 'package_customer_view' %}">Packages</a></li>
+      <li><a href="{%url 'GalleryView' %}">Gallery</a></li>
+      <!-- <li><a href="#">Offers</a></li> -->
+      <li><a href="{%url 'customer_booking' %}">My Bookings</a></li>
+      <li><a href="{%url 'NewsView' %}">News</a></li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </nav>
+</div>
+
+<div class="wrapper row3">
+    <main class="hoc container clear"> 
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="content"> 
+        <!-- ################################################################################################ -->
+        <div id="gallery">
+          <figure>
+            <header class="heading">Destination Gallery</header>
+            <ul class="nospace clear">
+                
+                {% for i in gallery %}
+                      
+              <li><a href="{{i.image.url}}"><img src="{{i.image.url}}" alt=""></a><br>{{i.destination_name}}/ {{i.image_name}}</li>
+              {% endfor %}
+
+             
+            </ul>
+            <!-- <figcaption>Gallery Description Goes Here</figcaption> -->
+          </figure>
+        </div>
+        <!-- ################################################################################################ -->
+        <!-- ################################################################################################ -->
+        <!-- <nav class="pagination">
+          <ul>
+            <li><a href="#">&laquo; Previous</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><strong>&hellip;</strong></li>
+            <li><a href="#">6</a></li>
+            <li class="current"><strong>7</strong></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><strong>&hellip;</strong></li>
+            <li><a href="#">14</a></li>
+            <li><a href="#">15</a></li>
+            <li><a href="#">Next &raquo;</a></li>
+          </ul>
+        </nav> -->
+        <!-- ################################################################################################ -->
+      </div>
+      <!-- ################################################################################################ -->
+      <!-- / main body -->
+      <div class="clear"></div>
+    </main>
+  </div>
+{% endblock %}

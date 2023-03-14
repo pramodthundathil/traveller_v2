@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+ {% extends 'index.html' %}
 {% block content %}
 
 <div class="wrapper row3">
@@ -81,11 +81,11 @@
               </div>
               <div class="one_third first">
                 <label for="sdate">Trip start date: <span>*</span></label>
-                <input type="date" name="sdate" id="name" value="" size="22" required>
+                <input type="date" name="sdate" id="datefield"  value="" size="22" required>
               </div>
               <div class="one_third">
                 <label for="trans">Trip End Date: <span>*</span></label>
-                <input type="date" name="Edate" id="email" value="" size="22" required>
+                <input type="date" name="Edate" id="datefield2"  value="" size="22" required>
               </div>
             
               <div class="one_third first">
@@ -109,8 +109,13 @@
                 <input type="text" name="state" id="email" value="" size="22" required>
               </div>
               <div class="one_third">
-                <label for="dis">Contry:<span>*</span></label>
-                <input type="text" name="contry" id="email" value="" size="22" required>
+                <label for="contry">Contry:<span>*</span></label>
+                <select name="contry" id="" style="padding: 10px;border: .5px solid rgba(128, 128, 128, 0.543); width:350px;">
+                  <option value="" selected disabled>Select</option>
+                  {% for item in contries %}
+                  <option value="{{item}}">{{item}}</option>
+                  {% endfor %}
+                </select>
               </div>
               
               <div class="one_third">
@@ -126,5 +131,23 @@
     </main>
   </div>
 <br><br>
+
+<script>
+  var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+var yyyy = today.getFullYear();
+if (dd < 10) {
+  dd = '0' + dd
+}
+if (mm < 10) {
+  mm = '0' + mm
+}
+
+today = yyyy + '-' + mm + '-' + dd;
+document.getElementById("datefield").setAttribute("min", today);
+document.getElementById("datefield2").setAttribute("min", today)
+  
+</script>
 
 {% endblock %}

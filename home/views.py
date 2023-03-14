@@ -2,26 +2,26 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .froms import UserAddform
 from django.contrib.auth import authenticate,login,logout
-
 from .decorators import unautenticated_user, admin_only, allowed_users
 from django.contrib.auth.decorators import login_required
-
 from Destination.models import Destination_List
 from packages.models import Packages
-
-
 from django.contrib import messages
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+from django.contrib.auth.models import Group 
+from Gallery.models import GalleryImage
 
-# Create your views here.
 
 @admin_only
 def home(request):
-  
+    
     Destination_List_items = Destination_List.objects.all()
+    gallery = GalleryImage.objects.all()
     package = Packages.objects.all()
     
-    return render (request,'index.html',{'Destination_List_items':Destination_List_items,'package':package})
+    return render (request,'index.html',{'Destination_List_items':Destination_List_items,'package':package,"gallery":gallery})
+
+
 
 @login_required(login_url='signup')
 @allowed_users(allowed_roles=["admin"])
@@ -79,6 +79,8 @@ def registration(request):
             else:
                 new_user = form.save()
                 new_user.save()
+                group = Group.objects.get(name='customer')
+                new_user.groups.add(group) 
                 
                 messages.success(request,"User Created Successfully...")
                 return redirect('signup')

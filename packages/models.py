@@ -1,5 +1,4 @@
 from django.db import models
-from sklearn.metrics import max_error
 
 # Create your models here.
 

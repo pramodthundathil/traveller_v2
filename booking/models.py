@@ -24,4 +24,5 @@ class BookingPackage(models.Model):
     Payment_status = models.BooleanField(null=True)
     approval_status = models.BooleanField(null=True)
     
+    
 

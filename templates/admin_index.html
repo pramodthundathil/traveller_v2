@@ -81,8 +81,8 @@
                     <ul>
                         <li><a href="{%url 'destiantion_list' %}">View Destinations</a></li>
                         <li><a href="{%url 'add_destination' %}">Add Destinations</a></li>
-                        <li><a href="{%url 'update_destination' %}">Update Destinations</a></li>
-                        <li><a href="{%url 'delete_destination'%}">Delete Destinations</a></li>
+                        <!-- <li><a href="{%url 'update_destination' %}">Update Destinations</a></li> -->
+                        <li><a href="{%url 'delete_destination' %}">Delete Destinations</a></li>
 
                     </ul>
                 </li>
@@ -102,28 +102,28 @@
                 </li>
                 <li><a class="drop" href="#">Gallery</a>
                     <ul>
-                        <li><a href="#">Add Gallery Images</a></li>
-                        <li><a href="#">Edit Gallery</a>
+                        <li><a href="{%url 'GalleryAdd' %}">Add Gallery Images</a></li>
+                        <!-- <li><a href="#">Edit Gallery</a> -->
                     </ul>
 
                 </li>
-                <li><a class="drop" href="#">Offers</a>
-                    <ul>
+                <!-- <li><a class="drop" href="#">Offers</a> -->
+                    <!-- <ul>
                         <li><a href="#">Add Offers</a></li>
                         <li><a href="#">Edit Offers</a>
-                    </ul>
+                    </ul> -->
 
                 </li>
                 <li><a class="drop" href="#">Booking</a>
                     <ul>
                         <li><a href="{%url 'update_booking' %}">Manage Bookings</a></li>
-                        <li><a href="#">Approved Bookigs</a>
+                        <!-- <li><a href="#">Approved Bookigs</a> -->
                     </ul>
                 </li>
                 <li><a class="drop" href="#">News</a>
                     <ul>
-                        <li><a href="#">Add News</a></li>
-                        <li><a href="#">Edit News</a>
+                        <li><a href="{%url 'AddNews' %}">Add News</a></li>
+                        <!-- <li><a href="#">Edit News</a> -->
                     </ul>
                 </li>
             </ul>
@@ -185,162 +185,7 @@
             <!-- ################################################################################################ -->
             <hr class="btmspace-80">
             <!-- ################################################################################################ -->
-            <section>
-                <div class="sectiontitle">
-                    <h6 class="heading">Destinations</h6>
-                    <p></p>
-                </div>
-                <ul class="nospace group overview">
-                    <li class="one_third">
-                        <figure><a href="#"><img src="{%static 'images/demo/backwater.png' %}" alt=""></a>
-                            <figcaption>
-                                <h6 class="heading">Kerala/Kochi</h6>
-                                <p>'Queen of the Arabian Sea'</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="one_third">
-                        <figure><a href="#"><img src="{%static 'images/demo/Kanyakumari.png' %}" alt=""></a>
-                            <figcaption>
-                                <h6 class="heading">Kanyakumari</h6>
-                                <p>The Virgin Princess is a town in Kanyakumari District in the state of Tamil Nadu</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="one_third">
-                        <figure><a href="#"><img src="{%static 'images/demo/Kashmir.png' %}" alt=""></a>
-                            <figcaption>
-                                <h6 class="heading">Hendrerit leo vestibulum</h6>
-                                <p>Sed varius sed ex eros accumsan eget nisl a laoreet porta.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="one_third">
-                        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
-                            <figcaption>
-                                <h6 class="heading">Euismod urna sed</h6>
-                                <p>Urna vestibulum suscipit lacus quis odio vestibulum venenatis.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="one_third">
-                        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
-                            <figcaption>s
-                                <h6 class="heading">Tincidunt a posuere</h6>
-                                <p>Phasellus vel hendrerit lorem sed tristique lacus in auctor.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li class="one_third">
-                        <figure><a href="#"><img src="images/demo/348x261.png" alt=""></a>
-                            <figcaption>
-                                <h6 class="heading">Posuere elit vel</h6>
-                                <p>Euismod libero sodales ut cum sociis natoque penatibus et magnis.</p>
-                            </figcaption>
-                        </figure>
-                    </li>
-                </ul>
-            </section>
-            <!-- ################################################################################################ -->
-            <!-- / main body -->
-            <div class="clear"></div>
-        </main>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <div class="wrapper coloured">
-        <article class="hoc cta clear">
-            <!-- ################################################################################################ -->
-            <h6 class="three_quarter first">Dis parturient montes nascetur ridiculus mus vivamus</h6>
-            <footer class="one_quarter"><a class="btn" href="#">Porta risus purus</a></footer>
-            <!-- ################################################################################################ -->
-        </article>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <div class="wrapper row3">
-        <section class="hoc container clear">
-            <!-- ################################################################################################ -->
-            <div class="sectiontitle">
-                <h6 class="heading">Et ipsum suscipit sit amet</h6>
-                <p>Molestie dolor blandit mauris porta quam erat ut laoreet velit</p>
-            </div>
-            <ul class="nospace group latest">
-                <li class="one_third first">
-                    <article>
-                        <time datetime="2045-04-06T08:15+00:00"><i class="far fa-calendar-alt rgtspace-5"></i>
-                            06<sup>th</sup> April 2045 @ 15:00pm</time>
-                        <div class="excerpt">
-                            <h6 class="heading">ac finibus purus pulvinar quis suspendisse varius</h6>
-                            <p>condimentum sem ac euismod tortor semper sit amet fusce pretium justo nec faucibus
-                                finibus libero odio porttitor magna et semper mi velit maximus nisi nullam accumsan
-                                massa [<a href="#">&hellip;</a>]</p>
-                            <ul class="meta">
-                                <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li>
-                                <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Tag 1</a>, <a href="#">Tag 2</a>
-                                </li>
-                            </ul>
-                            <footer><a class="btn" href="#">Read More</a></footer>
-                        </div>
-                    </article>
-                </li>
-                <li class="one_third">
-                    <article>
-                        <time datetime="2045-04-05T08:14+00:00"><i class="far fa-calendar-alt rgtspace-5"></i>
-                            05<sup>th</sup> April 2045 @ 14:00pm</time>
-                        <div class="excerpt">
-                            <h6 class="heading">dapibus nulla a tristique risus vivamus ut metus</h6>
-                            <p>turpis integer ac neque ac risus malesuada tincidunt vestibulum rutrum luctus lobortis ut
-                                tincidunt nulla at luctus aliquet mi magna sagittis sem id dapibus dui ex at augue etiam
-                                [<a href="#">&hellip;</a>]</p>
-                            <ul class="meta">
-                                <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li>
-                                <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Tag 1</a>, <a href="#">Tag 2</a>
-                                </li>
-                            </ul>
-                            <footer><a class="btn" href="#">Read More</a></footer>
-                        </div>
-                    </article>
-                </li>
-                <li class="one_third">
-                    <article>
-                        <time datetime="2045-04-04T08:13+00:00"><i class="far fa-calendar-alt rgtspace-5"></i>
-                            04<sup>th</sup> April 2045 @ 13:00pm</time>
-                        <div class="excerpt">
-                            <h6 class="heading">lacinia et mauris sit amet bibendum vulputate sem</h6>
-                            <p>duis vulputate at massa et sollicitudin erat eget suspendisse dignissim ultrices
-                                hendrerit donec aliquam risus a porta fermentum donec a mi pulvinar ex auctor eleifend
-                                eu finibus [<a href="#">&hellip;</a>]</p>
-                            <ul class="meta">
-                                <li><i class="fas fa-user rgtspace-5"></i> <a href="#">Admin</a></li>
-                                <li><i class="fas fa-tags rgtspace-5"></i> <a href="#">Tag 1</a>, <a href="#">Tag 2</a>
-                                </li>
-                            </ul>
-                            <footer><a class="btn" href="#">Read More</a></footer>
-                        </div>
-                    </article>
-                </li>
-            </ul>
-            <!-- ################################################################################################ -->
-        </section>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <div class="wrapper row2">
-        <figure class="hoc container clear clients">
-            <!-- ################################################################################################ -->
-            <ul class="nospace group">
-                <li class="one_quarter first"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
-                <li class="one_quarter"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
-                <li class="one_quarter"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
-                <li class="one_quarter"><a href="#"><img src="images/demo/249x100.png" alt=""></a></li>
-            </ul>
-            <!-- ################################################################################################ -->
-        </figure>
-    </div>
+    
 
     {% endblock  %}
     <!-- ################################################################################################ -->

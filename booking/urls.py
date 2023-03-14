@@ -11,5 +11,7 @@ urlpatterns = [
     path('pending_booking',views.pending_booking,name="pending_booking"),
     path('customer_booking',views.customer_booking,name='customer_booking'),
     path('delete_booking',views.delete_booking,name='delete_booking'),
+    path('paymenthandler/', views.paymenthandler, name='paymenthandler'),
+    
     
 ]

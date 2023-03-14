@@ -8,6 +8,10 @@
         <!-- ################################################################################################ -->
         
         <div class="scrollable">
+          {% for m in messages %}
+          <br><br>
+          <h6 style="color:red;text-align:center">{{m}}</h6>
+          {% endfor %}
           <table>
             <thead>
               <tr>
@@ -23,7 +27,7 @@
                 <td><a href="#">{{Destination_List_item.Destination_Name}}</a></td>
                 <td>{{Destination_List_item.Destination_state}}</td>
                 <td>{{Destination_List_item.Destination_discription}}</td>
-                <td><button name="submit" value = "{{Destination_List_item.Destination_id}}" class="btn btn-danger" style="background-color:#F9461F">Delete</button></td>
+                <td><a href="{%url 'deletedestinationdone' Destination_List_item.Destination_id %}" name="submit" value = "{{Destination_List_item.Destination_id}}" class="btn btn-danger" style="background-color:#F9461F">Delete</a></td>
               </tr>
               {% endfor %}
               

@@ -11,5 +11,6 @@ urlpatterns = [
     path('delete_destination',views.delete_destination,name='delete_destination'),
     
     path('destination_customer_view',views.destination_customer_view,name="destination_customer_view"),
+    path("deletedestinationdone/<int:pk>",views.deletedestinationdone,name="deletedestinationdone")
     
 ]

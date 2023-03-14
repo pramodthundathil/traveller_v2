@@ -32,11 +32,12 @@ import booking
 urlpatterns = [
     
     path('',include(home.urls)),
-    path('destination',include(Destination.urls)),
-    path('packages',include(packages.urls)),
-    path('booking',include(booking.urls)),
+    path('destination/',include(Destination.urls)),
+    path('packages/',include(packages.urls)),
+    path('booking/',include(booking.urls)),
     
     path('admin/', admin.site.urls),
+    path("Gallery/",include("Gallery.urls"))
     
 ]
 urlpatterns = urlpatterns+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

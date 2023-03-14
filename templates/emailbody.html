@@ -1,0 +1,20 @@
+{% autoescape off %}
+Hi {{ user }},
+
+Greetings..
+
+Your Tour Package order was created with booking Id: {{ booking_id }} Please wait for Booking conformation,
+Package details,
+
+{% for i  in packages%}
+Package Id : {{i.Package_id}}
+Package Name : {{i.Package_destination}}
+Total Amount: {{total_amount}}
+
+{% endfor %}
+
+Happy Holidays,
+
+Traveller Holidays......
+ 
+ {% endautoescape %}

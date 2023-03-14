@@ -54,6 +54,13 @@ def delete_destination(request):
     Destination_List_items = Destination_List.objects.all()
     return render(request,"destination/delete_destination.html",{'Destination_List_items':Destination_List_items})
 
+def deletedestinationdone(request,pk):
+    dest = Destination_List.objects.get(Destination_id = pk)
+    dest.Destination_image.delete()
+    dest.delete()
+    messages.info(request,'Destination deleted')
+    return redirect('delete_destination')
+
 def destination_customer_view(request):
     
     Destination_List_items = Destination_List.objects.all()

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Destination',
     'packages',
     'booking',
+    'Gallery',
     
 ]
 
@@ -136,3 +137,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+RAZOR_KEY_ID = "rzp_test_9tCOZuKLhiZdaM"
+RAZOR_KEY_SECRET = "IfMivqkfXWvuJi2IR10W4bzN"
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ecartshoppingtest@gmail.com'
+EMAIL_HOST_PASSWORD = 'annsizhjwccpztrj'
