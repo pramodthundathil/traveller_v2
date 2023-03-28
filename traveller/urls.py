@@ -37,7 +37,8 @@ urlpatterns = [
     path('booking/',include(booking.urls)),
     
     path('admin/', admin.site.urls),
-    path("Gallery/",include("Gallery.urls"))
+    path("Gallery/",include("Gallery.urls")),
+    path('accounts/', include('django.contrib.auth.urls')),
     
 ]
 urlpatterns = urlpatterns+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

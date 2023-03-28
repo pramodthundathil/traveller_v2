@@ -9,6 +9,8 @@ urlpatterns = [
     path('signup',views.signup,name='signup'),
     path('registration',views.registration,name="registration"),
     path('signout',views.signout,name='signout'),
+    path('FeedBacks',views.FeedBacks,name='FeedBacks'),
+    path('CustomerFeedbacks',views.CustomerFeedbacks,name='CustomerFeedbacks'),
+    path('ReplayFeed/<int:pk>',views.ReplayFeed,name='ReplayFeed'), 
     
-    
-]
+] 

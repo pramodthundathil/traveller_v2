@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group 
 from Gallery.models import GalleryImage
+from .models import FeedbackItems
 
 
 @admin_only
@@ -47,7 +48,7 @@ def signup(request):
             messages.info(request,'Username or Password Incorrect')
             return redirect('signup')
     
-    return render(request,'login.html')
+    return render(request,'registration/login.html')
 
 def signout(request):
     
@@ -86,3 +87,37 @@ def registration(request):
                 return redirect('signup')
     
     return render(request,'register.html',{'UserCreateForm':UserCreateForm})
+
+@login_required(login_url='signup')
+def FeedBacks(request):
+    feedback1 = FeedbackItems.objects.filter(user = request.user)
+    if request.method == "POST":
+        feedback = request.POST['feedback']
+        fb = FeedbackItems.objects.create(user = request.user,feedback = feedback)
+        fb.save()
+        messages.info(request,'feddback submitted')
+        return redirect('FeedBacks')
+    context = {
+        "feedback":feedback1
+    }
+    
+    return render(request,'feedbacks.html',context)
+
+@login_required(login_url='signup')
+def CustomerFeedbacks(request):
+    feedback1 = FeedbackItems.objects.all()
+    
+    context = {
+        "feedback":feedback1
+    } 
+    return render(request,"feddbacksadmin.html",context)
+
+def ReplayFeed(request,pk):
+    if request.method == "POST":
+        replay = request.POST['replay']
+        feed = FeedbackItems.objects.get(id = pk)
+        feed.replay = replay
+        feed.save()
+        messages.info(request,"Replayed feedback success ")    
+    
+    return redirect('CustomerFeedbacks')
