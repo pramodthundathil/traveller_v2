@@ -58,7 +58,7 @@ def signout(request):
 @unautenticated_user
 def registration(request):
     
-    UserCreateForm = UserAddform()
+    form = UserAddform()
     
     if request.method == 'POST':
         
@@ -86,7 +86,7 @@ def registration(request):
                 messages.success(request,"User Created Successfully...")
                 return redirect('signup')
     
-    return render(request,'register.html',{'UserCreateForm':UserCreateForm})
+    return render(request,'register.html',{'form':form})
 
 @login_required(login_url='signup')
 def FeedBacks(request):

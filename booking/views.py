@@ -212,8 +212,10 @@ def paymenthandler(request):
   else:
   # if other than POST request is made.
     return HttpResponseBadRequest()
-
-
-    
+def BookingCancelbyCustomer(request,pk):
+      BookingPackage.objects.get(Bookingid = pk).delete()
+      messages.info(request,"Booking Cancelled")
+      
+      return redirect("customer_booking")    
     
         

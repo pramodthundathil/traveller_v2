@@ -15,12 +15,12 @@
         {% for message in messages %}
         <h3 style="color: red;"> {{message}} </h3>
         {% endfor %}
-        {{form.errors}}
+        <h3 style="color: red;">{{form.errors}}</h3>
         <form method="post">
           <div class="one_third first">
 
             {%csrf_token%}
-            {% for feild in UserCreateForm %}
+            {% for feild in form %}
             {{feild.label}} : <br>
             {{feild}} <br><br>
             {% endfor %}
