@@ -8,5 +8,6 @@ urlpatterns = [
     path('edit_package',views.edit_package,name='edit_package'),
     path('update_package',views.update_package,name='update_package'),
     
-    path('package_customer_view',views.package_customer_view,name='package_customer_view')
+    path('package_customer_view',views.package_customer_view,name='package_customer_view'),
+    path('package_customer_view_Destination_click/<int:pk>',views.package_customer_view_Destination_click,name='package_customer_view_Destination_click')
 ]

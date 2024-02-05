@@ -106,3 +106,9 @@ def package_customer_view(request):
     
     package = Packages.objects.all()
     return render(request,'home/packages.html',{'package':package})
+
+def package_customer_view_Destination_click(request,pk):
+    
+    desti = Destination_List.objects.get(Destination_id = pk)
+    package = Packages.objects.filter(Package_destination_id = desti.Destination_id)
+    return render(request,'home/packages.html',{'package':package})

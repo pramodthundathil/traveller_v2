@@ -31,7 +31,7 @@
       {% for Destination_List_item in Destination_List_items %}
       
         <li class="one_third">
-          <figure><a href="#"><img src="{{Destination_List_item.Destination_image.url}}" alt=""></a>
+          <figure><a href="{%url 'package_customer_view_Destination_click' Destination_List_item.Destination_id %}"><img src="{{Destination_List_item.Destination_image.url}}" alt=""></a>
             <figcaption>
               <h6 class="heading">{{Destination_List_item.Destination_Name}}/{{Destination_List_item.Destination_state}}</h6>
               <p><q>{{Destination_List_item.Destination_discription}}</q></p>
